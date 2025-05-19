@@ -1,0 +1,66 @@
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f9f9fa;
+  color: #252525;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  margin: 36px 0 16px 0;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+label {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+select {
+  padding: 6px 14px;
+  margin-left: 8px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  font-size: 1em;
+  background: #fff;
+  outline: none;
+}
+
+#boulder-count {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 1.15em;
+  font-weight: 600;
+}
+
+#svg-climb {
+  display: block;
+  margin: 0 auto 32px auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 36px rgba(0, 0, 0, 0.08);
+  background: #eaeaea;
+}
+
+#tooltip {
+  position: absolute;
+  display: none;
+  background: #23272f;
+  color: #fff;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 1em;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgba(30, 31, 41, 0.15);
+  z-index: 1000;
+  border: none;
+  max-width: 340px;
+  white-space: pre-line;
+}
