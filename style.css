@@ -4,11 +4,13 @@ body {
   margin: 0;
 }
 
-h1 {
-  margin: 32px 0 16px 32px;
+.page-title {
+  text-align: center;
+  font-size: 2.8rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #263147;
+  margin: 36px 0 28px 0;
+  letter-spacing: 2px;
+  color: #22223b;
 }
 
 .main-flex-container {
