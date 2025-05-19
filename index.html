@@ -1,60 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Kilterboard Heatmap</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Load D3 from CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body>
-    <h1 class="header">Kilterboard Heatmap</h1>
-    <div class="controls">
-      <label>
-        Angle:
-        <select id="angle-filter">
-          <option value="all">All Angles</option>
-          <option value="20">20°</option>
-          <option value="30">30°</option>
-          <option value="35">35°</option>
-          <option value="40">40°</option>
-          <option value="45">45°</option>
-          <option value="50">50</option>
-          <option value="55">55°</option>
-          <option value="60">60°</option>
-          <option value="65">65</option>
-          <option value="70">70°</option>
-        </select>
-      </label>
-      <label>
-        Grade:
-        <select id="grade-filter">
-          <option value="all">All Grades</option>
-          <option value="5a/V1">5a/V1</option>
-          <option value="5b/V1">5b/V1</option>
-          <option value="5c/V2">5c/V2</option>
-          <option value="6a/V3">6a/V3</option>
-          <option value="6b+/V4">6b+/V4</option>
-          <option value="6c/V5">6c/V5</option>
-          <option value="7a/V6">7a/V6</option>
-          <option value="7a+/V7">7a+/V7</option>
-          <option value="7b/V8">7b/V8</option>
-          <option value="7b+/V8">7b+/V8</option>
-          <option value="7c/V9">7c/V9</option>
-          <option value="7c+/V10">7c+/V10</option>
-          <option value="8a/V11">8a/V11</option>
-          <option value="8a+/V12">8a+/V12</option>
-        </select>
-      </label>
+    <h1>Kilterboard Heatmap</h1>
+    <div class="main-flex-container">
+      <div class="sidebar">
+        <div class="controls">
+          <label>
+            Angle:
+            <select id="angle-filter">
+              <option value="all" selected>All Angles</option>
+              <option value="20">20°</option>
+              <option value="30">30°</option>
+              <option value="40">40°</option>
+              <option value="45">45°</option>
+            </select>
+          </label>
+          <br />
+          <label>
+            Grade:
+            <select id="grade-filter">
+              <option value="all" selected>All Grades</option>
+              <option value="5a/V1">5a/V1</option>
+              <option value="5b/V1">5b/V1</option>
+              <option value="5c/V2">5c/V2</option>
+              <option value="6a/V3">6a/V3</option>
+              <option value="6b+/V4">6b+/V4</option>
+              <option value="6c/V5">6c/V5</option>
+              <option value="7a/V6">7a/V6</option>
+              <option value="7a+/V7">7a+/V7</option>
+              <option value="7b/V8">7b/V8</option>
+              <option value="7b+/V8">7b+/V8</option>
+              <option value="7c/V9">7c/V9</option>
+              <option value="7c+/V10">7c+/V10</option>
+              <option value="8a/V11">8a/V11</option>
+              <option value="8a+/V12">8a+/V12</option>
+            </select>
+          </label>
+          <p id="boulder-count">
+            Total boulders: <span id="boulder-number">0</span>
+          </p>
+        </div>
+        <div id="legend-container"></div>
+      </div>
+      <div class="board-container">
+        <svg
+          id="svg-climb"
+          width="880"
+          height="1020"
+          style="border: 1px solid #ccc"
+        ></svg>
+      </div>
     </div>
-    <p id="boulder-count">Total boulders: <span id="boulder-number">0</span></p>
-    <svg
-      id="svg-climb"
-      xmlns="http://www.w3.org/2000/svg"
-      style="width: 880px; height: 1020px"
-    ></svg>
     <div id="tooltip"></div>
     <script src="script.js"></script>
   </body>

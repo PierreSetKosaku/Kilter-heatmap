@@ -1,66 +1,98 @@
 body {
-  font-family: "Inter", Arial, sans-serif;
-  background: #f9f9fa;
-  color: #252525;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #fafaff;
   margin: 0;
-  padding: 0;
 }
 
-.header {
-  margin: 36px 0 16px 0;
-  text-align: center;
+h1 {
+  margin: 32px 0 16px 32px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #263147;
 }
 
-.controls {
+.main-flex-container {
   display: flex;
-  justify-content: center;
-  gap: 36px;
-  margin-bottom: 24px;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 32px;
+  gap: 40px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  width: 280px; /* Set your desired sidebar width */
+  box-sizing: border-box;
+  padding: 20px 10px;
+  background: #fafaff;
+}
+
+.legend-header {
+  margin: 20px 0 10px 0;
+  font-weight: bold;
+}
+
+.legend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.legend-list li {
+  display: flex;
   align-items: center;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.legend-list span {
+  display: inline-block;
+  width: 22px;
+  height: 14px;
+  border-radius: 3px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
 }
 
-label {
-  font-size: 1.1em;
-  font-weight: 500;
-}
-
-select {
-  padding: 6px 14px;
-  margin-left: 8px;
-  border-radius: 8px;
-  border: 1px solid #bbb;
-  font-size: 1em;
-  background: #fff;
-  outline: none;
+.controls label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #28304b;
 }
 
 #boulder-count {
-  text-align: center;
-  margin-bottom: 16px;
-  font-size: 1.15em;
-  font-weight: 600;
+  margin: 16px 0 24px 0;
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+#legend-container {
+  margin-top: 24px;
+  width: 130px;
+}
+
+.board-container {
+  /* You can add extra styling here if you want */
 }
 
 #svg-climb {
-  display: block;
-  margin: 0 auto 32px auto;
-  border-radius: 18px;
-  box-shadow: 0 4px 36px rgba(0, 0, 0, 0.08);
-  background: #eaeaea;
+  background: #f7f9fc;
+  box-shadow: 0 4px 20px 0 #0001;
 }
 
 #tooltip {
   position: absolute;
   display: none;
-  background: #23272f;
+  background: #222;
   color: #fff;
-  border-radius: 6px;
-  padding: 9px 14px;
-  font-size: 1em;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 12px;
   pointer-events: none;
-  box-shadow: 0 6px 18px rgba(30, 31, 41, 0.15);
   z-index: 1000;
-  border: none;
-  max-width: 340px;
-  white-space: pre-line;
 }

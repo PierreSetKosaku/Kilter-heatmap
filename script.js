@@ -12,6 +12,57 @@ function getPercentileColor(value, quantiles) {
   return "#d4f7b2"; // bottom 30%
 }
 
+function renderLegend(legendId) {
+  const colors = [
+    { color: "#bd0026", label: "Most Used Holds" }, // quantiles[4]
+    { color: "#fd8d3c", label: "Very High Usage" }, // quantiles[3]
+    { color: "#fecc5c", label: "Moderate Usage" }, // quantiles[2]
+    { color: "#ffffb2", label: "Low Usage" }, // quantiles[1]
+    { color: "#d4f7b2", label: "Least Used Holds" }, // else
+    { color: "transparent", label: "Not used" },
+  ];
+
+  // Remove previous legend if it exists
+  d3.select(`#${legendId}`).selectAll("*").remove();
+
+  const legendSvg = d3
+    .select(`#${legendId}`)
+    .append("svg")
+    .attr("width", 130)
+    .attr("height", 24 + colors.length * 30);
+
+  legendSvg
+    .append("text")
+    .attr("x", 0)
+    .attr("y", 18)
+    .attr("font-size", 15)
+    .attr("font-weight", "bold")
+    .attr("fill", "#263147")
+    .text("Usage legend:");
+
+  colors.forEach((d, i) => {
+    // Color box
+    legendSvg
+      .append("rect")
+      .attr("x", 2)
+      .attr("y", 28 + i * 28)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill", d.color)
+      .attr("stroke", "#333")
+      .attr("stroke-width", 1);
+
+    // Label
+    legendSvg
+      .append("text")
+      .attr("x", 28)
+      .attr("y", 43 + i * 28)
+      .attr("font-size", 13)
+      .attr("fill", "#333")
+      .text(d.label);
+  });
+}
+
 /**
  * Compute percentile (quantile) cutoffs from an array of usage counts.
  */
@@ -269,6 +320,7 @@ Promise.all([
 
   // Initial render
   redraw();
+  renderLegend("legend-container");
 
   // Attach event listeners
   angleSelect.addEventListener("change", redraw);
